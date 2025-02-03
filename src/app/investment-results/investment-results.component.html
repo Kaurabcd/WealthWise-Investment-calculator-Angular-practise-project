@@ -1,0 +1,36 @@
+@if (data.length > 0) {
+<div class="center">
+    <h2>Annual Investment Projections</h2>
+    <div>
+    <table border="1" >
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Interest Earned</th>
+          <th>Value End Of Year</th>
+          <th>Annual Investment</th>
+          <th>Total interest</th>
+          <th>Total AMount invested</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(row of data; track row.year){
+            <tr>
+                <td>{{ row.year }}</td>
+                <td>{{ row.interest }}</td>
+                <td>{{ row.valueEndOfYear }}</td>
+                <td>{{ row.annualInvestment }}</td>
+                <td>{{ row.totalInterest }}</td>
+                <td>{{ row.totalAmountInvested }}</td>
+              </tr>
+        }
+
+      </tbody>
+    </table>
+</div>
+  </div>
+  
+}
+@else {
+    <div class="center">No Data found</div>
+}
