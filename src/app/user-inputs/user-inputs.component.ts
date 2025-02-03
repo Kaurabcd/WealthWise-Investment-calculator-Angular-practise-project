@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AnnualDataService } from '../shared/annual-data.service';
 @Component({
   selector: 'app-user-inputs',
-  standalone: true,
-  imports: [FormsModule],
+  // standalone: true,
+  // imports: [FormsModule],
   templateUrl: './user-inputs.component.html',
   styleUrl: './user-inputs.component.css'
 })
