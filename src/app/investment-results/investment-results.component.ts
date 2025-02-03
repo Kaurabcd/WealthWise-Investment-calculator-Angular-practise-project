@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input } from '@angular/core';
 import { AnnualDataService } from '../shared/annual-data.service';
 import { CurrencyPipe } from '@angular/common';
 
@@ -12,8 +12,9 @@ import { CurrencyPipe } from '@angular/common';
 export class InvestmentResultsComponent {
 // @Input() data:any;
 constructor(private investmentResult:AnnualDataService){}
-data:any;
+data= computed(()=>this.investmentResult.InvestmentResultFinal())
+
 ngOnInit(){
-  this.data=this.investmentResult.InvestmentResultFinal();
+  // this.data=this.investmentResult.InvestmentResultFinal();
 }
 }
