@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { AnnualDataService } from '../shared/annual-data.service';
-import { user } from '../user-inputs/user-inputs.model';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -12,9 +11,9 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class InvestmentResultsComponent {
 // @Input() data:any;
-constructor(private annualServie:AnnualDataService){}
+constructor(private investmentResult:AnnualDataService){}
 data:any;
 ngOnInit(){
-  this.data=this.annualServie.getData();
+  this.data=this.investmentResult.InvestmentResultFinal();
 }
 }
