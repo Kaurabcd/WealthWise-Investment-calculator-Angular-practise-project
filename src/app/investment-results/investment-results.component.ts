@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { AnnualDataService } from '../shared/annual-data.service';
 import { user } from '../user-inputs/user-inputs.model';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-investment-results',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './investment-results.component.html',
   styleUrl: './investment-results.component.css'
 })

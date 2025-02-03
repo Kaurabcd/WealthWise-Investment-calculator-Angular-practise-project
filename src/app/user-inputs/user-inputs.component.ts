@@ -13,33 +13,34 @@ export class UserInputsComponent {
   constructor(public annualService:AnnualDataService){}
 //  @Output() data = new EventEmitter<any>();
 user:user={ 
-  initial_invest:0,
-  annual_invest:0,
-  return:0,
-  duration:0}
+  enteredInitialInvestment:0,
+  enteredAnnualInvestment:0,
+  enteredExpectedRetrun:0,
+  enteredDuration:0}
   annualData:any;
+  
   onSubmit(){
-    // console.log(this.user);
     // this.data.emit(this.user);
     this.calculateInvestmentResults();
   }
+  
   calculateInvestmentResults() {
     console.log(this.user);
-    let investmentValue = this.user.initial_invest;
+    let investmentValue = this.user.enteredInitialInvestment;
   
-    for (let i = 0; i < this.user.duration; i++) {
+    for (let i = 0; i < this.user.enteredDuration; i++) {
       const year = i + 1;
-      const interestEarnedInYear = investmentValue * (this.user.return / 100);
-      investmentValue += interestEarnedInYear + this.user.annual_invest
+      const interestEarnedInYear = investmentValue * (this.user.enteredExpectedRetrun / 100);
+      investmentValue += interestEarnedInYear + this.user.enteredAnnualInvestment
       const totalInterest =
-        investmentValue - this.user.annual_invest * year - this.user.initial_invest;
+        investmentValue - this.user.enteredAnnualInvestment * year - this.user.enteredInitialInvestment;
       this.annualData={
         year: year,
         interest: interestEarnedInYear,
         valueEndOfYear: investmentValue,
-        annualInvestment: this.user.annual_invest,
+        annualInvestment: this.user.enteredAnnualInvestment,
         totalInterest: totalInterest,
-        totalAmountInvested: this.user.initial_invest + this.user.annual_invest * year,
+        totalAmountInvested: this.user.enteredInitialInvestment + this.user.enteredAnnualInvestment * year,
       }
       this.annualService.addData(this.annualData);
       console.log(this.annualService.getData());
